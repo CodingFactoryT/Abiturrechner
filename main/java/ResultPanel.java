@@ -34,7 +34,7 @@ public class ResultPanel extends JPanel implements ActionListener{
 	}
 	
 	public static void updateTotal(int totalPoints) {
-		resultText.setText(String.valueOf(totalPoints) + " P." + "\n\nÿ =" + calculateTotalAverage(totalPoints));
+		resultText.setText(String.valueOf(totalPoints) + " P." + "\n\n√ò = " + calculateTotalAverage(totalPoints));
 	}
 	
 	private static String calculateTotalAverage(int totalPoints) {

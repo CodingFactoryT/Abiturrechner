@@ -20,7 +20,7 @@ public class Marks {
 
 	private void readFromFile() {
 		try {
-			File directory = new File(System.getenv("APPDATA") + "/Abiturrechner/");
+			File directory = new File(System.getProperty("user.home") + "/.abiturrechner/");
 			File file = new File(directory.toString() + "/data.txt");
 			
 			if(!directory.exists()) {	//if directory does not exist or was deleted, create it
@@ -59,7 +59,7 @@ public class Marks {
 	
 	public static void writeToFile() {
 		try {
-			PrintWriter pw = new PrintWriter(System.getenv("APPDATA") + "/Abiturrechner/data.txt");
+			PrintWriter pw = new PrintWriter(System.getProperty("user.home") + "/.abiturrechner/data.txt");
 			pw.println(Arrays.toString(pruefungsfaecher_GK_Indexes));
 			pw.println(Arrays.toString(weitereKurse_Indexes));
 			pw.println(Arrays.toString(pruefungsfaecher_LK_Indexes));

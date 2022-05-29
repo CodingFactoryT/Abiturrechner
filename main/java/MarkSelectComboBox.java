@@ -29,7 +29,7 @@ public class MarkSelectComboBox<E> extends JComboBox<E>{
 		this.setEditable(false);
 		this.setBackground(Color.white);
 		this.setMaximumRowCount(4);
-		this.setSize(new Dimension(WIDTH,HEIGHT));
+		this.setPreferredSize(new Dimension(WIDTH,HEIGHT));
 	}
 	@Override 
 	public void updateUI() {	//removes the arrow button and the border of the JComboBox

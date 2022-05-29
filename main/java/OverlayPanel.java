@@ -21,7 +21,7 @@ public class OverlayPanel extends JPanel{
 		pruefungen_GK = initComboboxPanel(738, 143, 3, 1, 65, 64, marks.pruefungen_GK_Indexes);
 		pruefungen_LK = initComboboxPanel(738, 645, 2, 1, 65, 67, marks.pruefungen_LK_Indexes);	
 
-		ResultPanel.updateTotal(calculateTotalPoints(ResultPanel.optionalMark));
+		ResultPanel.updateTotal(calculateTotalPoints(OptionalMarkPanel.optionalMark));
 	}
 	
 	public static void updateMarksInClass() {

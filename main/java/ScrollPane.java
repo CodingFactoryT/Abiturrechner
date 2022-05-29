@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 public class ScrollPane extends JPanel{
 	static BackgroundPanel backgroundPanel = new BackgroundPanel();	//static beacause static classes are initialized first and SideBar needs a variable from BackgroundPanel
 	static OverlayPanel overlayPanel = new OverlayPanel();;	//OverlayPanel has to be loaded before ResiltPanel
+	
 	public ScrollPane() throws ClassNotFoundException, IOException {
 		this.setLayout(new BorderLayout());
 		this.setBorder(null);

@@ -38,6 +38,8 @@ public class Marks {
 				pruefungen_GK_Indexes = Arrays.stream(str.substring(1, str.length()-1).split(",")).map(String::trim).mapToInt(Integer::parseInt).toArray();
 				str = br.readLine();
 				pruefungen_LK_Indexes = Arrays.stream(str.substring(1, str.length()-1).split(",")).map(String::trim).mapToInt(Integer::parseInt).toArray();		
+				str = br.readLine();
+				OptionalMarkPanel.optionalMark = Integer.parseInt(str);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -53,6 +55,7 @@ public class Marks {
 			pw.println(Arrays.toString(pruefungsfaecher_LK_Indexes));
 			pw.println(Arrays.toString(pruefungen_GK_Indexes));
 			pw.println(Arrays.toString(pruefungen_LK_Indexes));
+			pw.println(OptionalMarkPanel.optionalMark);
 			pw.close();
 		} catch (IOException e) {
 			e.printStackTrace();

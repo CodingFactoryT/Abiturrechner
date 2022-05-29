@@ -13,19 +13,18 @@ import java.awt.GridBagLayout;
 public class ResultPanel extends JPanel implements ActionListener{
 	
 	private static JTextArea resultText = new JTextArea();
-	public static int optionalMark = 11;
 	private Font standartFont = new Font("Arial", Font.PLAIN, 50);
+	public static int height = 200;
+	
 	public ResultPanel() {
 		this.setLayout(new GridBagLayout());
 		Color backgroundColor = new Color(136, 211, 103);
 		Color fontColor = Color.white;
 		int space = 7;
 		int width = MainFrame.ADDITIONAL_WIDTH - 2*space;
-		int height = 200;
-		this.setBounds(7, BackgroundPanel.imageHeight-height, width, height);
+		this.setBounds(space, BackgroundPanel.imageHeight-height, width, height);
 		this.setBackground(backgroundColor);
 
-		
 		resultText.setFont(standartFont);
 		resultText.setForeground(fontColor);
 		resultText.setBackground(backgroundColor);
@@ -47,7 +46,7 @@ public class ResultPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(OverlayPanel.pruefungen_LK != null) {	//if all arrays have been initialized
-			int points = OverlayPanel.calculateTotalPoints(optionalMark);
+			int points = OverlayPanel.calculateTotalPoints(OptionalMarkPanel.optionalMark);
 			updateTotal(points);
 		}
 	}	

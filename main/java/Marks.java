@@ -2,13 +2,10 @@ package main.java;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
-
 
 public class Marks {
 	static int[] pruefungsfaecher_GK_Indexes = new int[12];
@@ -23,10 +20,21 @@ public class Marks {
 
 	private void readFromFile() {
 		try {
-			File file = new File("data.txt");
+			File directory = new File(System.getenv("APPDATA") + "/Abiturrechner/");
+			File file = new File(directory.toString() + "/data.txt");
+			
+			if(!directory.exists()) {	//if directory does not exist or was deleted, create it
+				directory.mkdir();
+				System.out.println("Der Ordner \"" + directory.toString() + "\" wurde erstellt");
+			}
+			if(!file.exists()) {		//if data file does not exist or was deleted, create it								
+				file.createNewFile();
+				System.out.println("Die Datei \"" + file.toString() + "\" wurde erstellt");
+			}
+			
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			
-			if(file.length() != 0) {	
+			if(file.length() != 0) {
 				String str = "";
 				str = br.readLine();
 				pruefungsfaecher_GK_Indexes = Arrays.stream(str.substring(1, str.length()-1).split(",")).map(String::trim).mapToInt(Integer::parseInt).toArray();
@@ -41,6 +49,8 @@ public class Marks {
 				str = br.readLine();
 				OptionalMarkPanel.optionalMark = Integer.parseInt(str);
 			}
+			
+			br.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -49,7 +59,7 @@ public class Marks {
 	
 	public static void writeToFile() {
 		try {
-			PrintWriter pw = new PrintWriter("data.txt");
+			PrintWriter pw = new PrintWriter(System.getenv("APPDATA") + "/Abiturrechner/data.txt");
 			pw.println(Arrays.toString(pruefungsfaecher_GK_Indexes));
 			pw.println(Arrays.toString(weitereKurse_Indexes));
 			pw.println(Arrays.toString(pruefungsfaecher_LK_Indexes));
@@ -57,7 +67,7 @@ public class Marks {
 			pw.println(Arrays.toString(pruefungen_LK_Indexes));
 			pw.println(OptionalMarkPanel.optionalMark);
 			pw.close();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		

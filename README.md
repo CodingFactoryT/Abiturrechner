@@ -1,5 +1,5 @@
+[(for english version read below)](#english-version) <br>
 # Generelles
-[(for english version read below)](#english-version) <br> <br>
 Dieses Projekt ist ausschließlich für das Bundesland Hessen aus Deutschland gemacht, da das Programm die Note nach der Formel   <b>Durchschnitt = 17/3 - Gesamtpunktzahl/180</b>
 berechnet. Die Summe aller Punkte ist außerdem auch auf die hessischen Standarts ausgelegt, ich weiß nicht, ob das hessische System zur Berechnung der Abiturnote ebenfalls in
 anderen Bundesländern verwendet wird. 
